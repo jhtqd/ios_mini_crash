@@ -1,3 +1,5 @@
 # ios_mini_crash
 
-A description of this package.
+测试人员测试期间，发生Crash时，不方便看到Crash信息。
+此代码库只需一行代码即可让App在Crash时弹出栈信息，方便快速定位。
+此代码库也提供了一种机制，当多线程环境下发生Crash，在显示栈信息时，如何同时显示父线程的栈信息。
