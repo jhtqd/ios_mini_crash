@@ -82,23 +82,15 @@ public final class CrashManager{
     }
     
     //过滤掉栈里无效的行
-    private func filterStack(_ crashStack:[String]) -> [String]{
-        var r = [String]()
-        for line in crashStack{
-            var b = false
+    func filterStack(_ crashStack:[String]) -> [String]{
+        return crashStack.map { line -> String in
             for ignore in self.ignoreKeywords{
                 if line.contains(ignore){
-                    b = true
-                    break
+                    return "----"
                 }
             }
-            if b{
-                r.append("----")
-            }else{
-                r.append(line)
-            }
+            return line
         }
-        return r
     }
 }
 

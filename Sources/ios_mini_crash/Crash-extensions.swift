@@ -31,6 +31,15 @@ extension Thread {
 }
 
 extension DispatchQueue {
+    /** 例如：
+     DispatchQueue.global().async_ex{
+         DispatchQueue.main.async_ex{
+             let a = [1,2,3]
+             print(a[3])
+         }
+     }
+     */
+    //此处仅为机制演示，并未考虑所有情况和重载
     func async_ex(_ work: @escaping @convention(block) () -> Void){
         var curStack = [
             "------------------------------------------------",
