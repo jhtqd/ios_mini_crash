@@ -73,19 +73,3 @@ extension Thread {
     }
 }
 
-extension Operation {
-    
-    func start_ex(){
-        var curStack = [
-            "------------------------------------------------",
-            "Parent Operation stack: "
-        ]
-        curStack.append(contentsOf: Thread.callStackSymbols)
-        if let parentCallStack = Thread.current.parentCallStack {
-            curStack.append(contentsOf: parentCallStack)
-        }
-        self.parentCallStack = curStack
-        self.start()
-    }
-}
-
